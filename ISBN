@@ -1,0 +1,25 @@
+print('Input Product ID: ')
+n = input()
+new = [d for d in str(n)]
+del new[0]
+del new[0]
+del new[0]
+
+coeff = [10, 9, 8, 7, 6, 5, 4, 3, 2]
+sum = 0 
+for i in range(len(new)):
+    new[i] = int(new[i])
+    sum += coeff[i]*int(new[i])
+
+if sum%11 == 0:
+    last_dig = 0
+else: 
+    last_dig = 11 - (sum%11)
+    
+if last_dig != 10:
+    new.append(last_dig)
+    isbn = int(''.join(map(str, new)))
+    print ('ISBN: {}'.format(isbn))
+else:
+    isbn = int(''.join(map(str, new)))
+    print('ISBN: {}x'.format(isbn) )
